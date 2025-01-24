@@ -58,16 +58,7 @@ function App() {
 
       {/* Vídeo do YouTube */}
       <div className="mt-8">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/watch?v=fInO9yC0xHY&list=PL-t1336xq7ykXOp5FSVIgXj6UBKLSBpwR"
-          title="Música Tema do Chaves"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="rounded-lg shadow-lg"
-        ></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/fInO9yC0xHY?si=xtmb7QIBAJXexCaG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   );
