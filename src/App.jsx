@@ -61,7 +61,7 @@ function App() {
         <iframe
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/Qo2RK_T_Pw8"
+          src="https://www.youtube.com/watch?v=fInO9yC0xHY&list=PL-t1336xq7ykXOp5FSVIgXj6UBKLSBpwR"
           title="Música Tema do Chaves"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
