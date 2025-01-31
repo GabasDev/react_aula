@@ -1,67 +1,79 @@
-import { useState } from "react";
+import React from "react";
 import "./App.css";
 
-function App() {
-  const [buttonText, setButtonText] = useState("Clique no botão 🎵");
-  const [clicked, setClicked] = useState(false);
-
-  const playSound = () => {
-    const audio = new Audio("/sounds/chaves.mp3");
-    audio.play();
-
-    // Animação e mudança de estado
-    setClicked(true);
-    setButtonText("Pi pi pi pi... 🎶");
-
-    // Reseta o estado após 3 segundos
-    setTimeout(() => {
-      setButtonText("Clique no Vídeo 🎥");
-      setClicked(false);
-    }, 3000);
-  };
-
+const App = () => {
   return (
-    <div className="h-screen bg-gradient-to-b from-green-200 to-green-400 flex flex-col items-center justify-center">
-      {/* Card principal */}
-      <div className="bg-white rounded-xl shadow-xl p-8 w-96 flex flex-col items-center">
-        {/* Imagem do Chaves */}
-        <img
-          src="/images/chaves.png"
-          alt="Chaves"
-          className="w-32 h-32 rounded-full shadow-md mb-6"
-        />
+    <div>
+      <header>
+        <div className="container">
+          <h1>Escola Futuro</h1>
+          <nav>
+            <ul>
+              <li><a href="#about">Sobre</a></li>
+              <li><a href="#courses">Cursos</a></li>
+              <li><a href="#contact">Contato</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
 
-        {/* Título */}
-        <h1 className="text-3xl font-bold text-green-700 mb-4 text-center">
-          Lá vem o Chaves! 🎩
-        </h1>
+      <main>
+        <section id="hero">
+          <h2>Bem-vindo à Escola Futuro</h2>
+          <p>Prepare-se para transformar seu futuro com nossos cursos de qualidade.</p>
+          <a href="#contact">Inscreva-se agora</a>
+        </section>
 
-        {/* Botão interativo */}
-        <button
-          onClick={playSound}
-          className={`${
-            clicked ? "bg-red-500 animate-bounce" : "bg-yellow-500"
-          } text-white text-lg font-bold py-3 px-6 rounded-full shadow-lg hover:bg-yellow-600 transition transform ${
-            clicked ? "scale-110" : "hover:scale-105"
-          }`}
-        >
-          {buttonText}
-        </button>
-
-        {/* Mensagem após clicar */}
-        {clicked && (
-          <p className="mt-4 text-green-700 font-medium text-center">
-            🎤 *"Que coisa, não?!"* - Chaves
+        <section id="about">
+          <h2>Sobre nós</h2>
+          <p>
+            A Escola Futuro é referência em educação de qualidade, com cursos voltados para o desenvolvimento pessoal e profissional. Nosso objetivo é proporcionar conhecimento acessível e impactar positivamente a vida de nossos alunos.
           </p>
-        )}
-      </div>
+        </section>
 
-      {/* Vídeo do YouTube */}
-      <div className="mt-8">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/fInO9yC0xHY?si=xtmb7QIBAJXexCaG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
+        <section id="courses">
+          <h2>Nossos Cursos</h2>
+          <div className="courses">
+            <div className="course-card">
+              <h3>Curso de Tecnologia</h3>
+              <p>Aprenda as habilidades mais demandadas do mercado de tecnologia.</p>
+            </div>
+            <div className="course-card">
+              <h3>Curso de Idiomas</h3>
+              <p>Domine um novo idioma com nossos professores especializados.</p>
+            </div>
+            <div className="course-card">
+              <h3>Curso de Negócios</h3>
+              <p>Desenvolva competências para empreender ou alavancar sua carreira.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact">
+          <h2>Contato</h2>
+          <form>
+            <div>
+              <label htmlFor="name">Nome</label>
+              <input type="text" id="name" placeholder="Seu nome" />
+            </div>
+            <div>
+              <label htmlFor="email">E-mail</label>
+              <input type="email" id="email" placeholder="Seu e-mail" />
+            </div>
+            <div>
+              <label htmlFor="message">Mensagem</label>
+              <textarea id="message" rows="4" placeholder="Sua mensagem"></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+          </form>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2025 Escola Futuro. Todos os direitos reservados.</p>
+      </footer>
     </div>
   );
-}
+};
 
 export default App;
