@@ -2,21 +2,21 @@ import React from "react";
 import "./App.css";
 
 const App = () => {
-  const handleSubmit = (e) => {
+  const handleBooking = (e) => {
     e.preventDefault();
-    alert("Mensagem enviada com sucesso!");
+    alert("Reserva enviada com sucesso!");
   };
 
   return (
     <div>
       <header>
         <div className="container">
-          <h1>Escola Futuro</h1>
-          <nav aria-label="Navegação principal">
+          <h1>Gabas Viagens</h1>
+          <nav>
             <ul>
-              <li><a href="#about">Sobre</a></li>
-              <li><a href="#courses">Cursos</a></li>
-              <li><a href="#contact">Contato</a></li>
+              <li><a href="#destinations">Destinos</a></li>
+              <li><a href="#packages">Pacotes</a></li>
+              <li><a href="#book">Reserve</a></li>
             </ul>
           </nav>
         </div>
@@ -24,59 +24,60 @@ const App = () => {
 
       <main>
         <section id="hero" className="hero">
-          <h2>Bem-vindo à Escola Futuro</h2>
-          <p>Prepare-se para transformar seu futuro com nossos cursos de qualidade.</p>
-          <a className="btn" href="#contact">Inscreva-se agora</a>
+          <h2>Descubra o mundo com a gente</h2>
+          <p>Pacotes exclusivos para as férias que você merece!</p>
+          <a className="btn" href="#book">Reserve agora</a>
         </section>
 
-        <section id="about" className="section">
-          <h2>Sobre nós</h2>
-          <p>
-            A Escola Futuro é referência em educação de qualidade, com cursos voltados para o desenvolvimento pessoal e profissional.
-            Nosso objetivo é proporcionar conhecimento acessível e impactar positivamente a vida de nossos alunos.
-          </p>
-        </section>
-
-        <section id="courses" className="section">
-          <h2>Nossos Cursos</h2>
-          <div className="courses">
-            <div className="course-card">
-              <h3>Curso de Tecnologia</h3>
-              <p>Aprenda as habilidades mais demandadas do mercado de tecnologia.</p>
+        <section id="destinations" className="section">
+          <h2>Destinos Populares</h2>
+          <div className="destinations">
+            <div className="destination-card">
+              <h3>Paris</h3>
+              <p>A cidade do amor espera por você.</p>
             </div>
-            <div className="course-card">
-              <h3>Curso de Idiomas</h3>
-              <p>Domine um novo idioma com nossos professores especializados.</p>
+            <div className="destination-card">
+              <h3>Maldivas</h3>
+              <p>Praias paradisíacas e águas cristalinas.</p>
             </div>
-            <div className="course-card">
-              <h3>Curso de Negócios</h3>
-              <p>Desenvolva competências para empreender ou alavancar sua carreira.</p>
+            <div className="destination-card">
+              <h3>Nova York</h3>
+              <p>A cidade que nunca dorme cheia de aventuras.</p>
             </div>
           </div>
         </section>
 
-        <section id="contact" className="section">
-          <h2>Contato</h2>
-          <form onSubmit={handleSubmit}>
+        <section id="packages" className="section">
+          <h2>Nossos Pacotes</h2>
+          <ul className="package-list">
+            <li>Pacote Romântico - 7 dias em Paris</li>
+            <li>Pacote Família - 5 dias em Orlando</li>
+            <li>Pacote Aventura - 10 dias no Peru</li>
+          </ul>
+        </section>
+
+        <section id="book" className="section">
+          <h2>Faça sua Reserva</h2>
+          <form onSubmit={handleBooking}>
             <div className="form-group">
-              <label htmlFor="name">Nome</label>
-              <input type="text" id="name" placeholder="Seu nome" required />
+              <label htmlFor="fullname">Nome completo</label>
+              <input type="text" id="fullname" placeholder="Seu nome" required />
             </div>
             <div className="form-group">
-              <label htmlFor="email">E-mail</label>
-              <input type="email" id="email" placeholder="Seu e-mail" required />
+              <label htmlFor="destination">Destino</label>
+              <input type="text" id="destination" placeholder="Destino desejado" required />
             </div>
             <div className="form-group">
-              <label htmlFor="message">Mensagem</label>
-              <textarea id="message" rows="4" placeholder="Sua mensagem" required></textarea>
+              <label htmlFor="date">Data da viagem</label>
+              <input type="date" id="date" required />
             </div>
-            <button type="submit" className="btn">Enviar</button>
+            <button type="submit" className="btn">Reservar</button>
           </form>
         </section>
       </main>
 
       <footer>
-        <p>&copy; 2025 Escola Futuro. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Viagem dos Sonhos. Todos os direitos reservados.</p>
       </footer>
     </div>
   );
