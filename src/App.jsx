@@ -1,14 +1,58 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 const App = () => {
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatDate = (date) =>
+    date.toLocaleDateString("pt-BR", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+
+  const formatTime = (date) =>
+    date.toLocaleTimeString("pt-BR", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+
   const handleRequest = (e) => {
     e.preventDefault();
     alert("Solicitação de frete enviada com sucesso!");
   };
 
   return (
-    <div>
+    <div style={{ position: "relative" }}>
+      {/* Data e hora em destaque */}
+      <div
+        style={{
+          position: "absolute",
+          top: 20,
+          right: 20,
+          backgroundColor: "rgba(255, 255, 255, 0.85)",
+          padding: "12px 20px",
+          borderRadius: "10px",
+          boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+          textAlign: "right",
+          zIndex: 1000,
+        }}
+      >
+        <p style={{ margin: 0, fontSize: "1.1rem", fontWeight: "bold" }}>
+          📅 {formatDate(currentTime)}
+        </p>
+        <p style={{ margin: 0, fontSize: "2rem", color: "#007BFF", fontWeight: "bold" }}>
+          🕒 {formatTime(currentTime)}
+        </p>
+      </div>
+
       <header>
         <div className="container">
           <h1>Gabas Fretes</h1>
